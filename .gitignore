@@ -1,0 +1,12 @@
+.svn
+*.iml
+.idea
+.sonar
+/out
+/bin
+/.settings
+/target
+lib
+classes
+/tomcat*
+/tmp
