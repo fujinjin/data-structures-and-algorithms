@@ -8,8 +8,8 @@ public class TreeNode {
     TreeNode left;
     TreeNode right;
 
-    public TreeNode(int x) {
-        this.val = x;
+    public TreeNode(int val) {
+        this.val = val;
     }
 
     public int getVal() {

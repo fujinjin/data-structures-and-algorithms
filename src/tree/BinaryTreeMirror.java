@@ -1,7 +1,10 @@
 package tree;
 
 import tools.TreePrinter;
-
+/**
+ * 操作给定的二叉树，将其变换为源二叉树的镜像。\
+ * 递归的方式做的
+ * */
 public class BinaryTreeMirror {
     public static TreeNode mirror(TreeNode node) {
         if (node != null) {
