@@ -22,4 +22,19 @@ public class F1Task implements Callable<String> {
         System.out.println("T1:泡茶...");
         return "上茶:" + tf;
     }
+
+    public static void main(String[] args) {
+        F1Task.getResult();
+    }
+    public static void getResult() {
+        String s = "abc";
+        int[] array = new int[5];
+        for (int i = 0;i< array.length;i++){
+            array[i] = Math.toIntExact(Math.round(Math.random()*10));
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+
 }
