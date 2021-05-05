@@ -8,7 +8,7 @@ public class PrintABC {
     Condition conditionA = lock.newCondition();
     Condition conditionB = lock.newCondition();
     Condition conditionC = lock.newCondition();
-    volatile int value = 1;
+    volatile int value = 0;
     //打印多少遍
     private int count;
 
@@ -27,11 +27,11 @@ public class PrintABC {
         public void run() {
             lock.lock();
             try {
-                for (int i = 1; i < count; i++) {
-                    while (value > count / 3) {
+                for (int i = 0; i < count; i++) {
+                    while (value%3!=0) {
                         conditionA.await();
                     }
-                    System.out.println(i);
+                    System.out.print("A");
                     conditionB.signal();
                     value++;
                 }
@@ -48,11 +48,11 @@ public class PrintABC {
         public void run() {
             lock.lock();
             try {
-                for (int i = count / 3 + 1; i < count; i++) {
-                    while (value > count * 2 / 3) {
+                for (int i = 0; i < count; i++) {
+                    while (value%3!=1) {
                         conditionB.await();
                     }
-                    System.out.println(i);
+                    System.out.print("B");
                     conditionC.signal();
                     value++;
                 }
@@ -69,11 +69,11 @@ public class PrintABC {
         public void run() {
             lock.lock();
             try {
-                for (int i = count * 2 / 3 + 1; i <=count; i++) {
-                    while (value > count) {
+                for (int i = 0; i < count; i++) {
+                    while (value%3!=2) {
                         conditionC.await();
                     }
-                    System.out.println(i);
+                    System.out.println("C");
                     conditionA.signal();
                     value++;
                 }
@@ -86,7 +86,7 @@ public class PrintABC {
     }
 
     public static void main(String[] args) {
-        PrintABC printABC = new PrintABC(30);
+        PrintABC printABC = new PrintABC(5);
         printABC.printABC();
     }
 }
