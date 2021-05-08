@@ -14,9 +14,9 @@ public class BigHeapSort {
     //将元素array[k]自下往上逐步调整树形结构
     private void adjustDownToUp(int[] array, int k, int length) {
         int temp = array[k];
-        for (int i = 2 * k + 1; i < length - 1; i = 2 * i + 1) {
+        for (int i = 2 * k + 1; i < length ; i = 2 * i + 1) {
             //i为初始化为节点k的左孩子，沿节点较大的子节点向下调整
-            if (i < length && array[i] < array[i + 1]) {
+            if ( i < length-1 && array[i] < array[i + 1]) {
                 //取节点较大的子节点的下标
                 i++;   //如果节点的右孩子>左孩子，则取右孩子节点的下标
             }
@@ -33,7 +33,7 @@ public class BigHeapSort {
     //堆排序
     public int[] heapSort(int[] array) {
         array = buildMaxHeap(array); //初始建堆，array[0]为第一趟值最大的元素
-        for (int i = array.length - 1; i > 1; i--) {
+        for (int i = array.length - 1; i >= 0; i--) {
             int temp = array[0];  //将堆顶元素和堆底元素交换，即得到当前最大元素正确的排序位置
             array[0] = array[i];
             array[i] = temp;
@@ -57,6 +57,9 @@ public class BigHeapSort {
     }
     public static void main(String[] args) {
         BigHeapSort bigHeapSort = new BigHeapSort();
-        bigHeapSort.heapSort(new int[]{1,3,2,8,9,15,21,1,56,5});
+        int[] array = bigHeapSort.findMin(new int[3], new int[]{2, 5, 3,2,3,4,2, 6, 9, 10});
+        for (int i = 0; i <= array.length - 1; i++) {
+            System.out.print(array[i] + " ");
+        }
     }
 }
