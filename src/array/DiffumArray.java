@@ -47,7 +47,6 @@ public class DiffumArray {
     }
 
 
-
     public List<Interval> merge(List<Interval> intervals) {
         int n=intervals.size();
         int[] starts=new int[n];

@@ -15,7 +15,8 @@ public class BracketStack2 {
     }
 
     public boolean isValid(String input) {
-        Stack<Character> stack = new Stack<Character>();
+        Stack<Character> stack = new Stack<Character>();        int val;
+
         for (int i = 0; i < input.length(); i++) {
             char element = input.charAt(i);
             if (mappings.containsKey(element)) {

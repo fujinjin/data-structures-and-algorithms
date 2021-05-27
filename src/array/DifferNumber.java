@@ -2,10 +2,10 @@ package array;
 
 public class DifferNumber {
     public static int diffnum(int[] nums) {
-        int n = nums.length;
-        if (n == 0 || nums == null) {
+        if (nums == null || nums.length == 0) {
             return 0;
         }
+        int n = nums.length;
         int left = 0;
         int right = n - 1;
         int sum = 0;
